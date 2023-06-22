@@ -22,6 +22,14 @@ const arrow_left = document.querySelector(".arrow_left");
 //AJOUT DE LECOUTEUR EVENEMENT
 arrow_left.addEventListener("click", function() {
 	console.log("la flèche gauche a etait cliqué");
+	const dot_1 = document.querySelector(".dot_selected");
+//ENLEVER LA COULEUR BLANCHE
+dot_1.classList.remove("dot_selected");
+
+//SELECTIONNER LELEMENT PRECEDENT
+const dot_2 = dot_1.previousElementSibling;
+//AJOUTER LA COULEUR BLANCHE
+dot_2.classList.add("dot_selected");
 });
 
 //SELECTION DE LA FLECHE DROITE
@@ -30,6 +38,15 @@ const arrow_right = document.querySelector(".arrow_right");
 //AJOUT DE LECOUTEUR EVENEMENT
 arrow_right.addEventListener("click", function() {
 	console.log("la flèche droite a etait cliqué");
+	//SELECTIONNER LE POINT BLANC
+const dot_1 = document.querySelector(".dot_selected");
+//ENELEVER LA COULEUR BLANCHE
+dot_1.classList.remove("dot_selected");
+
+//SELECTIONNER LELEMENT SUIVANT
+const dot_2 = dot_1.nextElementSibling;
+//AJOUTER LA COULEUR BLANCHE
+dot_2.classList.add("dot_selected");
 });
 
 //SELECTION DE LEMPLACEMENT POUR AJOUTER LES POINT SOUS LIMAGE
@@ -46,3 +63,8 @@ for (let i = 0; i< slides.length; i++) {
 		dot.classList.add("dot_selected");
 	}
 }
+
+
+
+
+
