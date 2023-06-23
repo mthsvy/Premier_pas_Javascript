@@ -41,13 +41,20 @@ const arrow_left = document.querySelector(".arrow_left");
 //AJOUT DE LECOUTEUR D'EVENEMENT FLECHE GAUCHE
 arrow_left.addEventListener("click", function() {
 	console.log("la flèche gauche a etait cliqué");
+
+	//SELECTIONNER LE POINT BLANC
 	const dot_1 = document.querySelector(".dot_selected");
 	
 	//ENLEVER LA COULEUR BLANCHE
 	dot_1.classList.remove("dot_selected");
 
 	//SELECTIONNER LELEMENT PRECEDENT
-	const dot_2 = dot_1.previousElementSibling;
+	let dot_2;
+	if (dot_1 === dot_1.parentElement.firstElementChild ){
+		dot_2 = dot_1.parentElement.lastElementChild;		
+	} else {
+		dot_2 = dot_1.previousElementSibling;
+	}	
 
 	//AJOUTER LA COULEUR BLANCHE
 	dot_2.classList.add("dot_selected");
@@ -55,12 +62,17 @@ arrow_left.addEventListener("click", function() {
 	//JE SELECTIONNE LIMAGE A MODIFIER
 	const image = document.querySelector(".banner-img");
 	
-	//RECULE DE 1 LE CAROUSSEL
+	//RECULE DE 1 LE CAROUSSEL	
 	counter_image--;
+
+	//FAIRE UNE BOUCLE SUR LE CAROUSSEL
+	if (counter_image == -1) {
+		counter_image = slides.length - 1;
+	}
 
 	//JE MODIFIE LA SRC DE LIMAGE QUE JE VEUX MODIFIER
 	image.src = "./assets/images/slideshow/" + slides[counter_image].image;	
-	
+
 	//JE SELECTIONNE LE TEXTE A MODIFIER
 	const tagline = document.querySelector("#banner p");
 
@@ -81,8 +93,13 @@ arrow_right.addEventListener("click", function() {
 	//ENLEVER LA COULEUR BLANCHE
 	dot_1.classList.remove("dot_selected");
 
-	//SELECTIONNER LELEMENT SUIVANT
-	const dot_2 = dot_1.nextElementSibling;
+	//SELECTIONNER LELEMENT SUIVANT	
+	let dot_2;
+	if (dot_1 === dot_1.parentElement.lastElementChild ){
+		dot_2 = dot_1.parentElement.firstElementChild;		
+	} else {
+		dot_2 = dot_1.nextElementSibling;
+	}	
 
 	//AJOUTER LA COULEUR BLANCHE
 	dot_2.classList.add("dot_selected");
@@ -92,6 +109,12 @@ arrow_right.addEventListener("click", function() {
 
 	//AVANCE DE 1 LE CAROUSSEL
 	counter_image++;
+
+	//FAIRE UNE BOUCLE SUR LE CAROUSSEL
+	if (counter_image == slides.length) {
+		counter_image = 0;
+	}
+
 	//JE MODIFIE LA SRC DE LIMAGE QUE JE VEUX MODIFIER
 	image.src = "./assets/images/slideshow/" + slides[counter_image].image;
 
@@ -101,6 +124,8 @@ arrow_right.addEventListener("click", function() {
 	//MODIFIER LE TEXTE
 	tagline.innerHTML = slides[counter_image].tagLine;
 });
+
+
 
 	
 
