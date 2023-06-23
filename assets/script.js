@@ -39,14 +39,10 @@ for (let i = 0; i< slides.length; i++) {
 const arrow_left = document.querySelector(".arrow_left");
 
 //AJOUT DE LECOUTEUR D'EVENEMENT FLECHE GAUCHE
-arrow_left.addEventListener("click", function() {
-	console.log("la flèche gauche a etait cliqué");
+arrow_left.addEventListener("click", function() {	
 
 	//SELECTIONNER LE POINT BLANC
-	const dot_1 = document.querySelector(".dot_selected");
-	
-	//ENLEVER LA COULEUR BLANCHE
-	dot_1.classList.remove("dot_selected");
+	const dot_1 = document.querySelector(".dot_selected");	
 
 	//SELECTIONNER LELEMENT PRECEDENT
 	let dot_2;
@@ -55,12 +51,6 @@ arrow_left.addEventListener("click", function() {
 	} else {
 		dot_2 = dot_1.previousElementSibling;
 	}	
-
-	//AJOUTER LA COULEUR BLANCHE
-	dot_2.classList.add("dot_selected");
-
-	//JE SELECTIONNE LIMAGE A MODIFIER
-	const image = document.querySelector(".banner-img");
 	
 	//RECULE DE 1 LE CAROUSSEL	
 	counter_image--;
@@ -70,28 +60,17 @@ arrow_left.addEventListener("click", function() {
 		counter_image = slides.length - 1;
 	}
 
-	//JE MODIFIE LA SRC DE LIMAGE QUE JE VEUX MODIFIER
-	image.src = "./assets/images/slideshow/" + slides[counter_image].image;	
-
-	//JE SELECTIONNE LE TEXTE A MODIFIER
-	const tagline = document.querySelector("#banner p");
-
-	//MODIFIER LE TEXTE
-	tagline.innerHTML = slides[counter_image].tagLine;
+	defilementCarrousel(counter_image,dot_1,dot_2);
 });
 
 //SELECTION DE LA FLECHE DROITE
 const arrow_right = document.querySelector(".arrow_right");
 
 //AJOUT DE LECOUTEUR EVENEMENT FLECHE DROITE
-arrow_right.addEventListener("click", function() {
-	console.log("la flèche droite a etait cliqué");	
+arrow_right.addEventListener("click", function() {	
 
 	//SELECTIONNER LE POINT BLANC
-	const dot_1 = document.querySelector(".dot_selected");
-
-	//ENLEVER LA COULEUR BLANCHE
-	dot_1.classList.remove("dot_selected");
+	const dot_1 = document.querySelector(".dot_selected");	
 
 	//SELECTIONNER LELEMENT SUIVANT	
 	let dot_2;
@@ -101,12 +80,6 @@ arrow_right.addEventListener("click", function() {
 		dot_2 = dot_1.nextElementSibling;
 	}	
 
-	//AJOUTER LA COULEUR BLANCHE
-	dot_2.classList.add("dot_selected");
-
-	//JE SELECTIONNE LIMAGE A MODIFIER
-	const image = document.querySelector(".banner-img");
-
 	//AVANCE DE 1 LE CAROUSSEL
 	counter_image++;
 
@@ -115,15 +88,33 @@ arrow_right.addEventListener("click", function() {
 		counter_image = 0;
 	}
 
+	defilementCarrousel(counter_image,dot_1,dot_2);
+});
+
+function defilementCarrousel(counter,dot_1,dot_2){
+
+	//ENLEVER LA COULEUR BLANCHE
+	dot_1.classList.remove("dot_selected");
+
+	//AJOUTER LA COULEUR BLANCHE
+	dot_2.classList.add("dot_selected");
+
+	//JE SELECTIONNE LIMAGE A MODIFIER
+	const image = document.querySelector(".banner-img");
+
 	//JE MODIFIE LA SRC DE LIMAGE QUE JE VEUX MODIFIER
-	image.src = "./assets/images/slideshow/" + slides[counter_image].image;
+	image.src = "./assets/images/slideshow/" + slides[counter].image;
 
 	//JE SELECTIONNE LE TEXTE A MODIFIER
 	const tagline = document.querySelector("#banner p");
 
 	//MODIFIER LE TEXTE
-	tagline.innerHTML = slides[counter_image].tagLine;
-});
+	tagline.innerHTML = slides[counter].tagLine;	
+
+	
+}
+
+
 
 
 
