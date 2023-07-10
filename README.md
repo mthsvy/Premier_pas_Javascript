@@ -25,3 +25,5 @@ Utilisation des event listeners en JavaScript pour détecter les clics sur les f
 Programmation de la logique pour changer les images en fonction des clics sur les flèches.
 Gestion du défilement infini en mettant en place des conditions pour passer d'une image à l'autre de manière fluide.
 Grâce à ces différentes étapes, nous avons réussi à créer un diaporama fonctionnel avec défilement infini, offrant ainsi une expérience utilisateur agréable et intuitive.
+
+http://127.0.0.1:5500/index.html
