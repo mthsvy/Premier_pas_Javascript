@@ -38,6 +38,20 @@ for (let i = 0; i< slides.length; i++) {
 }
 
 //----------------------------------------------------- DEFILEMENT DES IMAGES EN FONCTION DU CLICK SUR LES FLECHES ----------------------
+// CREATION DE LA FLECHE GAUCHE
+const img_left = document.createElement("img");
+img_left.src = "./assets/images/arrow_left.png";
+img_left.alt = "flèche gauche";
+
+// AJOUT DE LA CLASSE
+img_left.classList.add("arrow", "arrow_left");
+
+// SELECTION DU PARENT
+const parent_arrow = document.querySelector("#banner");
+
+// AJOUT DE LENFANT AU PARENT
+banner.appendChild(img_left);
+
 //SELECTION DE LA FLECHE GAUCHE
 const arrow_left = document.querySelector(".arrow_left");
 
@@ -67,6 +81,17 @@ arrow_left.addEventListener("click", function() {
 });
 
 //SELECTION DE LA FLECHE DROITE
+const img_right = document.createElement("img");
+img_right.src = "./assets/images/arrow_right.png";
+img_right.alt = "flèche droite";
+
+// AJOUT DE LA CLASSE
+img_right.classList.add("arrow", "arrow_right");
+
+// AJOUT DE LENFANT AU PARENT
+banner.appendChild(img_right);
+
+// SELECTION DE LA CLASSE ARROW RIGHT POUR SEN SERVIR DANS LECOUTEUR 
 const arrow_right = document.querySelector(".arrow_right");
 
 //AJOUT DE LECOUTEUR EVENEMENT FLECHE DROITE
