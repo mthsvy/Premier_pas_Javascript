@@ -1,3 +1,4 @@
+//TABLEAU
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -16,6 +17,8 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+//COMPTEUR DIMAGE POUR PARCOURIR LE TABLEAU DIMAGE		
 let counter_image = 0;
 
 //----------------------------------------------------- AJOUT DES POINTS SOUS LIMAGE ----------------------
@@ -57,7 +60,7 @@ arrow_left.addEventListener("click", function() {
 
 	//FAIRE UNE BOUCLE SUR LE CAROUSSEL
 	if (counter_image == -1) {
-		counter_image = slides.length - 1;
+		counter_image = slides.length -1;
 	}
 
 	defilementCarrousel(counter_image,dot_1,dot_2);
@@ -109,9 +112,7 @@ function defilementCarrousel(counter,dot_1,dot_2){
 	const tagline = document.querySelector("#banner p");
 
 	//MODIFIER LE TEXTE
-	tagline.innerHTML = slides[counter].tagLine;	
-
-	
+	tagline.innerHTML = slides[counter].tagLine;		
 }
 
 
