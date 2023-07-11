@@ -76,7 +76,6 @@ arrow_left.addEventListener("click", function() {
 	if (counter_image == -1) {
 		counter_image = slides.length -1;
 	}
-
 	defilementCarrousel(counter_image,dot_1,dot_2);
 });
 
@@ -107,7 +106,6 @@ arrow_right.addEventListener("click", function() {
 	} else {
 		dot_2 = dot_1.nextElementSibling;
 	}	
-
 	//AVANCE DE 1 LE CAROUSSEL
 	counter_image++;
 
